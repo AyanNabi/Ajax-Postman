@@ -1,0 +1,23 @@
+.form-control {
+    width: 300px !important
+}
+
+.col-3 {
+    width: 200px;
+    height: 90px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover{
+        box-shadow: rgba(41, 33, 9, 0.25) 0px 30px 60px -12px, rgba(212, 133, 29, 0.3) 0px 18px 36px -18px;
+
+    }
+
+    .title{
+        color:brown;
+        font-size: 25px;
+        ;
+    }
+}
