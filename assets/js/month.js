@@ -3,11 +3,14 @@ $(document).ready(function () {
     $(document).on({
         ajaxStart: function () {
             $(".dot-spinner").removeClass("d-none");
+            $("section").addClass("d-none")
+
         },
         ajaxStop: function () {
+            $("section").removeClass("d-none")
+
             $(".dot-spinner").addClass("d-none");
-        $("#locationSpan").text(($("#location").val()).toUpperCase())
-            $("section").removeClass("d-none");
+            $("#locationSpan").text(($("#location").val()).toUpperCase());
 
         }
     });
@@ -61,11 +64,24 @@ $(document).ready(function () {
                             }
                         })
                     },
-                    error: function ajaxError(jqXHR) {
-                        console.error('Error: ', jqXHR.responseText);
+                    error: function (error) {
+
                     }
                 })
+            },
+            error: function (error) {
+                if (error.status == 400) {
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'City does not exist!',
+                      })
+                }
+
             }
+
+
         });
     })
 })

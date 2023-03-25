@@ -4,13 +4,16 @@ $(document).ready(function () {
     $(document).on({
         ajaxStart: function () {
             $(".dot-spinner").removeClass("d-none");
+            $(".container").addClass("d-none");
         },
         ajaxStop: function () {
             $(".dot-spinner").addClass("d-none");
+            $(".container").removeClass("d-none");
             $("#locationSpan").text($("#location").val().toUpperCase());
             $("#myData").removeClass("d-none");
         }
     });
+    
     $("form").submit(function (e) {
 
         e.preventDefault();
@@ -56,10 +59,8 @@ $(document).ready(function () {
                             }
                         })
                     },
-                    error: function ajaxError(error) {
-                        if (error.status == 400) {
-                            console.log("city does not exits");
-                        }
+                    err: function(data) {
+                        console.log("no data");
                     }
                 })
             }
