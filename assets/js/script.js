@@ -7,6 +7,7 @@ $(document).ready(function () {
         },
         ajaxStop: function () {
             $(".dot-spinner").addClass("d-none");
+            $("#locationSpan").text($("#location").val().toUpperCase());
             $("#myData").removeClass("d-none");
         }
     });
@@ -20,7 +21,6 @@ $(document).ready(function () {
         let year = date1.getFullYear();
 
         let location = ($("#location").val()).toLowerCase();
-        $("#locationSpan").text($("#location").val().toUpperCase());
 
 
         $.ajax({

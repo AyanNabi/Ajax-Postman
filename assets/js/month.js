@@ -6,6 +6,7 @@ $(document).ready(function () {
         },
         ajaxStop: function () {
             $(".dot-spinner").addClass("d-none");
+        $("#locationSpan").text(($("#location").val()).toUpperCase())
             $("section").removeClass("d-none");
 
         }
@@ -19,7 +20,6 @@ $(document).ready(function () {
         let month2 = Number($('#month option:selected').val());
         let year2 = Number($("#year2").val());
         let location = ($("#location").val()).toLowerCase();
-        $("#locationSpan").text(($("#location").val()).toUpperCase())
 
         $.ajax({
             method: 'GET',
