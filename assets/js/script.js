@@ -34,7 +34,7 @@ $(document).ready(function () {
             success: function (result) {
 
                 $.ajax({
-                    url: `http://api.aladhan.com/v1/calendar/${year}/${month}?latitude=${(result[0].latitude)}&longitude=${(result[0].longitude)}&method=2`,
+                    url: `https://api.aladhan.com/v1/calendar/${year}/${month}?latitude=${(result[0].latitude)}&longitude=${(result[0].longitude)}&method=2`,
                     method: "get",
                     success: function (whole) {
 

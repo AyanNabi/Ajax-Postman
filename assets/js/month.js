@@ -30,9 +30,18 @@ $(document).ready(function () {
             headers: { 'X-Api-Key': 'TuyFrdQlR5RsiT4sRomH60fzCPqzpxjEq0UfHFyw' },
             contentType: 'application/json',
             success: function (result) {
+                if (result.length === 0) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'City does not exist!',
+                    });
+                    return; // Prevent further AJAX calls if city doesn't exist
+                }
+
 
                 $.ajax({
-                    url: `http://api.aladhan.com/v1/calendar/${year2}/${month2}?latitude=${(result[0]).latitude}&longitude=${(result[0]).longitude}&method=2`,
+                    url: `https://api.aladhan.com/v1/calendar/${year2}/${month2}?latitude=${(result[0]).latitude}&longitude=${(result[0]).longitude}&method=2`,
                     method: "get",
                     success: function (whole) {
 
